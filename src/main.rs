@@ -48,6 +48,6 @@ fn main() {
             "Result:\n\t{first_number} / {second_number} = {}",
             first_number / second_number
         ),
-        _ => println!("You don't enter ligule operation!"),
+        _ => println!("You don't enter leagual operation!"),
     }
 }
