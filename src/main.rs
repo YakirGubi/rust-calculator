@@ -7,15 +7,15 @@ fn main() {
     println!("Rust calculator");
 
     print!("Enter your first number: ");
-    io::stdout().flush().unwrap();
+    io::stdout().flush().expect("Faild to print!");
     let first_number: i32 = get_input().expect("Can't convert from String to i32");
 
     print!("Enter your second number: ");
-    io::stdout().flush().unwrap();
+    io::stdout().flush().expect("Faild to print!");
     let second_number: i32 = get_input().expect("Can't convert from String to i32");
 
     print!("Enter your operation number (+,-,*,/): ");
-    io::stdout().flush().unwrap();
+    io::stdout().flush().expect("Faild to print!");
     let operation: char = get_input().expect("Can't convert from String to char");
 
     let result = calculate(first_number, second_number, operation);
@@ -28,7 +28,9 @@ fn main() {
 
 fn get_input<T: FromStr>() -> Result<T, T::Err> {
     let mut input = String::new();
-    io::stdin().read_line(&mut input).unwrap();
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Faild to get input!");
     input.trim().parse()
 }
 
